@@ -4,9 +4,12 @@ import "./globals.css"
 import ClientLayout from "./ClientLayout"
 
 export const metadata: Metadata = {
-  title: "Creative Portfolio | Your Name",
-  description: "A unique and memorable portfolio showcasing creativity and professionalism",
-  generator: "v0.app",
+  title: "Portfolio | Makara",
+  description: "A professionalism portfolio",
+  generator: "v2",
+  icons:{
+    icon: 'https://i.pinimg.com/736x/18/e9/ac/18e9ac3999b64780b9b70218cad2ac9a.jpg',
+  }
 }
 
 export default function RootLayout({
