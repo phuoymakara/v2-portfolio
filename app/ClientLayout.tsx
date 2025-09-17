@@ -27,8 +27,6 @@ export default function ClientLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const searchParams = useSearchParams()
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body
