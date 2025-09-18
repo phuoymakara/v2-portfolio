@@ -8,6 +8,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { useSearchParams } from "next/navigation"
 import { Suspense } from "react"
 import { ThemeProvider } from "@/components/theme-provider"
+import { SettingsProvider } from "@/hooks/useSettings"
 // import "./globals.css"
 
 const montserrat = Montserrat({
@@ -32,8 +33,10 @@ export default function ClientLayout({
       <body
         className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${montserrat.variable} ${openSans.variable}`}
       >
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          <Suspense fallback={<div>Loading...</div>}>
+          <SettingsProvider>{children}</SettingsProvider>
+          </Suspense>
         </ThemeProvider>
         <Analytics />
       </body>

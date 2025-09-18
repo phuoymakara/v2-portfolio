@@ -6,7 +6,13 @@ import { FEATURE_PROJECTS, WORK_EXPERIENCES } from "@/constants"
 import Image from "next/image"
 import dynamic from "next/dynamic"
 import Turnstile, { useTurnstile } from "react-turnstile";
+import { useRouter } from "next/navigation"
+import Link from "next/link"
+import { link } from "fs"
 
+const FloatingNavBar = dynamic(()=>
+  import("@/components/navigate").then((mod) => mod.FloatingNavDemo)
+);
 const ThemeToggle = dynamic(()=>
   import("@/components/theme-toggle").then((mod) => mod.ThemeToggle)
 );
@@ -33,8 +39,8 @@ const CardTitle = dynamic(()=>
 );
 
 
-
 export default function Portfolio() {
+  const router = useRouter()
   const [scrollY, setScrollY] = useState(0)
   const [scrollProgress, setScrollProgress] = useState(0)
   const [turnstileStatus, setTurnstileStatus] = useState<
@@ -53,7 +59,7 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-background">
-      <ThemeToggle />
+      {/* <ThemeToggle /> */}
 
       {/* Fixed scroll progress bar */}
       {/* <div className="fixed top-0 left-0 w-full h-1 bg-muted z-50">
@@ -286,33 +292,68 @@ export default function Portfolio() {
                 className="group cursor-pointer gap-0 py-0 overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:rotate-0 animate-in fade-in slide-in-from-bottom-8 "
                 style={{ animationDelay: `${index * 150}ms`, animationDuration: "1000ms" }}
               >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <Image 
-                  src={project.image}
-                  width={100}
-                  height={100}
-                  alt={project.title}
-                  loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 "
+               { project.link ? 
+                  <Link href={project.link} target="_blank">
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <Image 
+                      src={project.image}
+                      width={100}
+                      height={100}
+                      alt={project.title}
+                      loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 "
 
-                  />
-                </div>
-                <CardContent className="p-6">
-                  <Badge 
-                  aria-label="category"
-                  className="bg-accent text-accent-foreground border-accent/20 mb-3 group-hover:bg-accent/90 transition-colors duration-300">
-                    {project.category}
-                  </Badge>
-                  <CardTitle className="font-heading text-xl mb-2 group-hover:text-primary transition-colors duration-300">
-                    {project.title}
-                  </CardTitle>
-                  <p className="font-body text-sm text-muted-foreground mb-3">{project.tech}</p>
-                  <div className="flex items-center text-muted-foreground group-hover:text-accent transition-colors duration-300">
-                    <Github className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
-                    <span className="font-body text-sm">View Code</span>
-                    <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
-                  </div>
-                </CardContent>
+                      />
+                    </div>
+                    <CardContent className="p-6">
+                      <Badge 
+                      aria-label="category"
+                      className="bg-accent text-accent-foreground border-accent/20 mb-3 group-hover:bg-accent/90 transition-colors duration-300">
+                        {project.category}
+                      </Badge>
+                      <CardTitle className="font-heading text-xl mb-2 group-hover:text-primary transition-colors duration-300">
+                        {project.title}
+                      </CardTitle>
+                      <p className="font-body text-sm text-muted-foreground mb-3">{project.tech}</p>
+                      <div className="flex items-center text-muted-foreground group-hover:text-accent transition-colors duration-300">
+                        <Github className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
+                        <span className="font-body text-sm">View Code</span>
+                        <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                      </div>
+                    </CardContent>
+                  </Link>
+                  : (
+                    <>
+                       <div className="aspect-[4/3] overflow-hidden">
+                      <Image 
+                      src={project.image}
+                      width={100}
+                      height={100}
+                      alt={project.title}
+                      loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 "
+
+                      />
+                    </div>
+                    <CardContent className="p-6">
+                      <Badge 
+                      aria-label="category"
+                      className="bg-accent text-accent-foreground border-accent/20 mb-3 group-hover:bg-accent/90 transition-colors duration-300">
+                        {project.category}
+                      </Badge>
+                      <CardTitle className="font-heading text-xl mb-2 group-hover:text-primary transition-colors duration-300">
+                        {project.title}
+                      </CardTitle>
+                      <p className="font-body text-sm text-muted-foreground mb-3">{project.tech}</p>
+                      <div className="flex items-center text-muted-foreground group-hover:text-accent transition-colors duration-300">
+                        <Github className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
+                        <span className="font-body text-sm">View Code</span>
+                        <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                      </div>
+                    </CardContent>
+                    </>
+                  )
+                }
               </Card>
             ))}
           </div>
@@ -370,7 +411,7 @@ export default function Portfolio() {
                 </div>
               <Turnstile
               className="dark:bg-black dark:text-white"
-              sitekey={`0x4AAAAAAB1uB25mU9eEGhAW`}
+              sitekey={process.env.NODE_ENV==="development" ? `1x00000000000000000000AA`:`0x4AAAAAAB1uB25mU9eEGhAW`}
               retry="auto"
               refreshExpired="auto"
               onError={() => {
@@ -384,7 +425,8 @@ export default function Portfolio() {
               }}
             />
                 <Button
-                disabled={turnstileStatus!=='success'}
+                  onClick={(e) => e.preventDefault()}
+                  disabled={turnstileStatus!=='success'}
                   aria-label="send message"
                   className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold py-4 text-lg hover:scale-105 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 delay-1000">
                   <Terminal className="mr-2 h-5 w-5" />
@@ -427,6 +469,7 @@ export default function Portfolio() {
           </div>
         </div>
       </footer>
+      <FloatingNavBar/>
     </div>
   )
 }

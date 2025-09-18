@@ -37,18 +37,19 @@ export const FEATURE_PROJECTS =[
                 category: "React App",
                 image: "/project01.png",
                 tech: "React, Node.js, MongoDB",
+                link: "https://nisa-thol.vercel.app/"
+              },
+              {
+                title: "E Menu",
+                category: "Next.js",
+                image: "/project04.png",
+                tech: "Node.js, Next.js",
               },
               {
                 title: "NGO Subscription",
                 category: "WebSocket",
                 image: "/project02.png",
                 tech: "Socket.io, Express, Redis",
-              },
-              {
-                title: "E Menu",
-                category: "Backend",
-                image: "https://i.pinimg.com/736x/18/e9/ac/18e9ac3999b64780b9b70218cad2ac9a.jpg",
-                tech: "Node.js, Next.js",
               },
               {
                 title: "N/A",
@@ -58,7 +59,7 @@ export const FEATURE_PROJECTS =[
               },
               {
                 title: "N/A",
-                category: "Progressive Web App",
+                category: "N/A",
                 image: "https://i.pinimg.com/736x/18/e9/ac/18e9ac3999b64780b9b70218cad2ac9a.jpg",
                 tech: "Next.js, Service Workers",
               },
