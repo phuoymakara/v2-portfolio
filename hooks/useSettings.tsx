@@ -23,7 +23,7 @@ interface SettingsContextType {
 }
 
 const defaultSettings: Settings = {
-  mode: "system",
+  mode: "dark",
   theme: {
     styles: {
       light: {},
