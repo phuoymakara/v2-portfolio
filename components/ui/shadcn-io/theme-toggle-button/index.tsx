@@ -187,7 +187,7 @@ export const ThemeToggleButton = ({
       size={showLabel ? 'default' : 'icon'}
       onClick={handleClick}
       className={cn(
-        'relative overflow-hidden transition-all rounded-full',
+        'relative overflow-hidden transition-all rounded-full mr-auto bg-white/40 dark:bg-black/40 backdrop-blur-md  border border-white/20 dark:border-white/10 ',
         showLabel && 'gap-2',
         className
       )}
