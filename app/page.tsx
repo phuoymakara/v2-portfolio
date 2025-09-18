@@ -370,7 +370,7 @@ export default function Portfolio() {
                 </div>
               <Turnstile
               className="dark:bg-black dark:text-white"
-              sitekey={`0x4AAAAAABCZHo7RK0hYJZNG`}
+              sitekey={`0x4AAAAAAB1uB25mU9eEGhAW`}
               retry="auto"
               refreshExpired="auto"
               onError={() => {
