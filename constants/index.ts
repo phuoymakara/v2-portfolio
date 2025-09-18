@@ -62,4 +62,4 @@ export const FEATURE_PROJECTS =[
                 image: "https://i.pinimg.com/736x/18/e9/ac/18e9ac3999b64780b9b70218cad2ac9a.jpg",
                 tech: "Next.js, Service Workers",
               },
-            ]
+            ] //SS
