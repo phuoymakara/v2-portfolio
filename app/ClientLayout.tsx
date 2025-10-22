@@ -9,6 +9,7 @@ import { useSearchParams } from "next/navigation"
 import { Suspense } from "react"
 import { ThemeProvider } from "@/components/theme-provider"
 import { SettingsProvider } from "@/hooks/useSettings"
+import Script from "next/script"
 // import "./globals.css"
 
 const montserrat = Montserrat({
@@ -39,6 +40,12 @@ export default function ClientLayout({
           </Suspense>
         </ThemeProvider>
         <Analytics />
+        <Script 
+              defer
+              src="https://static.cloudflareinsights.com/beacon.min.js" 
+              data-cf-beacon='{"token": "a2a3629fb23b40ff910584d87270f8da"}'
+            >
+          </Script>
       </body>
     </html>
   )
