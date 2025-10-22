@@ -8,7 +8,12 @@ const cspHeader = `
     https://static.cloudflareinsights.com 
     https://challenges.cloudflare.com;
   style-src 'self' 'unsafe-inline';
-  img-src 'self' blob: data:;
+  img-src 
+    'self' 
+    blob: 
+    data: 
+    https://static.cloudflareinsights.com 
+    https://cloudflareinsights.com;
   font-src 'self';
   object-src 'none';
   base-uri 'self';
@@ -17,6 +22,7 @@ const cspHeader = `
   frame-src https://challenges.cloudflare.com;
   connect-src 
     'self' 
+    https://cloudflareinsights.com 
     https://*.cloudflareinsights.com 
     https://challenges.cloudflare.com;
   upgrade-insecure-requests;
