@@ -5,12 +5,10 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Montserrat, Open_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import { useSearchParams } from "next/navigation"
 import { Suspense } from "react"
 import { ThemeProvider } from "@/components/theme-provider"
 import { SettingsProvider } from "@/hooks/useSettings"
 import Script from "next/script"
-// import "./globals.css"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
