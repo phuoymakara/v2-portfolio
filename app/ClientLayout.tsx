@@ -38,11 +38,11 @@ export default function ClientLayout({
           </Suspense>
         </ThemeProvider>
         <Analytics />
-        <Script 
+        {/* <Script 
               defer
               src="https://static.cloudflareinsights.com/beacon.min.js" 
               data-cf-beacon='{"token": "a2a3629fb23b40ff910584d87270f8da"}'
-            />
+            /> */}
       </body>
     </html>
   )
