@@ -9,6 +9,7 @@ import { Suspense } from "react"
 import { ThemeProvider } from "@/components/theme-provider"
 import { SettingsProvider } from "@/hooks/useSettings"
 import Script from "next/script"
+import "./globals.css";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -38,11 +39,11 @@ export default function ClientLayout({
           </Suspense>
         </ThemeProvider>
         <Analytics />
-        {/* <Script 
+        <Script 
               defer
               src="https://static.cloudflareinsights.com/beacon.min.js" 
-              data-cf-beacon='{"token": "a2a3629fb23b40ff910584d87270f8da"}'
-            /> */}
+              data-cf-beacon='{"token": "f1e78435c49943a6969486a98a6bf428"}'
+            />
       </body>
     </html>
   )
