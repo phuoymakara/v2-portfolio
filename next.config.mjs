@@ -3,11 +3,9 @@ const cspHeader = `
   default-src 'self';
   script-src 
     'self' 
-    'unsafe-eval' 
-    'unsafe-inline' 
     https://static.cloudflareinsights.com 
     https://challenges.cloudflare.com;
-  style-src 'self' 'unsafe-inline';
+  style-src 'self' 'nonce-{NONCE}';
   img-src * blob: data:;
   font-src 'self';
   object-src 'none';
