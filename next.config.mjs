@@ -8,12 +8,6 @@ const cspHeader = `
     https://static.cloudflareinsights.com 
     https://challenges.cloudflare.com;
   style-src 'self' 'unsafe-inline';
-  img-src 
-    'self' 
-    blob: 
-    data: 
-    https://static.cloudflareinsights.com 
-    https://cloudflareinsights.com;
   font-src 'self';
   object-src 'none';
   base-uri 'self';
