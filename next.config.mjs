@@ -1,13 +1,7 @@
 /** @type {import('next').NextConfig} */
 const cspHeader = `
   default-src 'self';
-  script-src 
-    'self' 
-    'unsafe-eval' 
-    'unsafe-inline' 
-    https://static.cloudflareinsights.com 
-    https://challenges.cloudflare.com;
-  style-src 'self' 'unsafe-inline';
+  script-src * 'unsafe-inline' 'unsafe-eval';
   img-src * blob: data:;
   font-src 'self';
   object-src 'none';
